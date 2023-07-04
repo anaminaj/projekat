@@ -27,7 +27,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
         else
         {
             Debug.LogWarning("An instance of " + typeof(T) + " already exists in the scene. Self-destructing.");
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
