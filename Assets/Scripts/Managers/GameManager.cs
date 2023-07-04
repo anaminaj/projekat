@@ -35,5 +35,15 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(grid.PopulateGrid(false, true));
 
         // then remove the loading screen down here
+
+
+        // check for gridlock and offer a player a hint if they need it
+        grid.CheckPossibleMoves();
+    }
+
+    public void NoMoreMoves()
+    {
+        // reward the player
+        grid.MatchEverything();
     }
 }
