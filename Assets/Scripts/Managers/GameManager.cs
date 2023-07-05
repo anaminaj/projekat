@@ -7,6 +7,11 @@ public class GameManager : Singleton<GameManager>
 {
     private MatchablePool pool;
     private MatchableGrid grid;
+    private Cursor cursor;
+    private AudioMixer audioMixer;
+
+    [SerializeField]
+    private Fader loadingScreen;
 
     [SerializeField] private Vector2Int dimensions = Vector2Int.one;
     [SerializeField] private Text gridOutput;
@@ -15,6 +20,9 @@ public class GameManager : Singleton<GameManager>
     {
         pool = (MatchablePool) MatchablePool.Instance;
         grid = (MatchableGrid) MatchableGrid.Instance;
+        cursor = Cursor.Instance;
+        audioMixer = AudioMixer.Instance;
+
 
         // set up the scene
         StartCoroutine(Demo());
@@ -22,23 +30,32 @@ public class GameManager : Singleton<GameManager>
 
     private IEnumerator Demo()
     {
-        // it's a good idea to put a loading screen here
+        // disable user input
+        cursor.enabled = false;
+
+        // unhide loading screen
+        loadingScreen.Hide(false);
 
         // pool the matchables
         pool.PoolObjects(dimensions.x * dimensions.y * 2);
 
         // create the grid
         grid.InitializeGrid(dimensions);
-        
-        yield return null;
 
-        StartCoroutine(grid.PopulateGrid(false, true));
+        // fade out loading screen
+        StartCoroutine(loadingScreen.Fade(0));
 
-        // then remove the loading screen down here
+        // start backround music
+        audioMixer.PlayMusic();
 
+        // populate the grid
+        yield return StartCoroutine(grid.PopulateGrid(false, true));
 
         // check for gridlock and offer a player a hint if they need it
         grid.CheckPossibleMoves();
+
+        // enable user input
+        cursor.enabled = true;
     }
 
     public void NoMoreMoves()

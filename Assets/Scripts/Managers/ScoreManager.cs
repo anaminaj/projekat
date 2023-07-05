@@ -8,6 +8,7 @@ public class ScoreManager : Singleton<ScoreManager>
 {
     private MatchablePool pool;
     private MatchableGrid grid;
+    private AudioMixer audioMixer;
 
     [SerializeField]
     private Transform collectionPoint;
@@ -39,6 +40,7 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         pool = (MatchablePool) MatchablePool.Instance;
         grid = (MatchableGrid) MatchableGrid.Instance;
+        audioMixer = AudioMixer.Instance;
 
         comboText.enabled = false;
         comboSlider.gameObject.SetActive(false);
@@ -56,6 +58,10 @@ public class ScoreManager : Singleton<ScoreManager>
         {
             StartCoroutine(ComboTimer());
         }
+
+        // play a score sound
+        audioMixer.PlaySound(SoundEffects.score);
+
     }
     private IEnumerator ComboTimer()
     {
@@ -100,6 +106,14 @@ public class ScoreManager : Singleton<ScoreManager>
             toResolve.RemoveMatchable(powerupFormed);
             target = powerupFormed.transform;
             powerupFormed.SortingOrder = 3;
+
+            // play upgrade sound
+            audioMixer.PlaySound(SoundEffects.upgrade);
+        }
+        else
+        {
+            // play a resolve sound
+            audioMixer.PlaySound(SoundEffects.resolve);
         }
 
         for(int i = 0; i != toResolve.Count; ++i)
