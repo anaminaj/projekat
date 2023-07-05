@@ -16,8 +16,9 @@ public class ScoreManager : Singleton<ScoreManager>
     [SerializeField]
     private Text scoreText, comboText;
 
+    //UI Slider element for displaying the remaining time
     [SerializeField]
-    private Slider comboSlider;
+    private Image comboSlider;
 
     private int score, comboMultiplier;
 
@@ -50,7 +51,7 @@ public class ScoreManager : Singleton<ScoreManager>
     public void AddScore(int amount)
     {
         score += amount * IncreaseCombo();
-        scoreText.text = "Score: " + score;
+        scoreText.text =  score.ToString();
 
         timeSinceLastScore = 0;
 
@@ -74,7 +75,7 @@ public class ScoreManager : Singleton<ScoreManager>
         do
         {
             timeSinceLastScore += Time.deltaTime;
-            comboSlider.value = 1 - timeSinceLastScore / currentComboTime;
+            comboSlider.fillAmount = 1 - timeSinceLastScore / currentComboTime;
             yield return null;
         } while (timeSinceLastScore < currentComboTime);
 
