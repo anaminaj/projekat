@@ -21,7 +21,6 @@ public class ScoreManager : Singleton<ScoreManager>
     private Image comboSlider;
 
     private int score, comboMultiplier;
-
     public int Score
     {
         get
@@ -47,6 +46,13 @@ public class ScoreManager : Singleton<ScoreManager>
         comboSlider.gameObject.SetActive(false);
     }
 
+    //when the player hits retry, reset the combo and score
+    public void Reset()
+    {
+        score = 0;
+        scoreText.text = score.ToString();
+        timeSinceLastScore = maxComboTime;
+    }
 
     public void AddScore(int amount)
     {

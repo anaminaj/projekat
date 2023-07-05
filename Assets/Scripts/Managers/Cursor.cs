@@ -43,6 +43,13 @@ public class Cursor : Singleton<Cursor>
         grid = (MatchableGrid) MatchableGrid.Instance;
     }
 
+    //when the player hits retry make sure nothing is selected and the cursor is invisible
+    public void Reset()
+    {
+        SelectFirst(null);
+        spriteRenderer.enabled = false;
+    }
+
     private void Update()
     {
         if (!cheatMode || selected[0] == null)
