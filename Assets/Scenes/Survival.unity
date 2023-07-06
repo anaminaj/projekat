@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1041,10 +1041,10 @@ RectTransform:
   m_Father: {fileID: 1965527680}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: -668, y: -436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853465960
 MonoBehaviour:
@@ -1348,7 +1348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -228}
+  m_AnchoredPosition: {x: 220, y: -210}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &952000313
@@ -1570,7 +1570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -220}
+  m_AnchoredPosition: {x: -50, y: -205}
   m_SizeDelta: {x: 240, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265535017
@@ -1651,13 +1651,13 @@ MonoBehaviour:
   - {fileID: -1850249171, guid: fb0278a5665b1b44c8a27d2886e48db0, type: 3}
   - {fileID: -256590077, guid: fb0278a5665b1b44c8a27d2886e48db0, type: 3}
   colors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.627451, g: 0.19607843, b: 0.19607843, a: 1}
+  - {r: 0.83137256, g: 0.6784314, b: 0.12941177, a: 1}
+  - {r: 0.8352941, g: 0.3647059, b: 0.19215687, a: 1}
+  - {r: 0, g: 0.54901963, b: 0.49019608, a: 1}
+  - {r: 0.49019608, g: 0.5254902, b: 0.16862746, a: 1}
+  - {r: 0.015686275, g: 0.12941177, b: 0.25490198, a: 1}
+  - {r: 0.38431373, g: 0.24313726, b: 0.14509805, a: 1}
   match4Powerup: {fileID: 45589064, guid: fb0278a5665b1b44c8a27d2886e48db0, type: 3}
   match5Powerup: {fileID: 22848940, guid: fb0278a5665b1b44c8a27d2886e48db0, type: 3}
   crossPowerup: {fileID: 1110688615, guid: fb0278a5665b1b44c8a27d2886e48db0, type: 3}
@@ -1857,7 +1857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339456392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3, y: -3.5, z: 0}
+  m_LocalPosition: {x: -4.8, y: -3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2351,6 +2351,9 @@ MonoBehaviour:
   darkener: {fileID: 1935014558}
   finalScoreText: {fileID: 918999066}
   resultsPage: {fileID: 893391415}
+  levelIsTimed: 0
+  timer: {fileID: 0}
+  timeLimit: 0
   dimensions: {x: 7, y: 7}
   gridOutput: {fileID: 853465960}
   debugMode: 0
